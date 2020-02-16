@@ -14,6 +14,6 @@ def step_impl(context):
     if flight == NULL or departure == NULL:
         print("Не все необходимые поля заполнены!")
 
-#@and ('Незаполненные обязательные поля выделяются красным цветом')
-#def step_impl(context):
-#    pass
+@and ('Незаполненные обязательные поля выделяются красным цветом')
+def step_impl(context):
+    pass
