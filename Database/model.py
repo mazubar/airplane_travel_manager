@@ -1,5 +1,6 @@
+from Database.base import db_travel
+
 from peewee import *
-db_travel = SqliteDatabase('travel.db')
  
 class Account(Model):
     user_id = AutoField()
