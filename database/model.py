@@ -1,4 +1,4 @@
-from Database.base import db_travel
+from database.base import db_travel
 
 from peewee import *
  

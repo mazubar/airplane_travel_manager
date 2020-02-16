@@ -1,5 +1,5 @@
-from Database.base import *
-from Database.base import db_travel
+from database.base import *
+from database.base import db_travel
 
 db_travel.connect()
 
