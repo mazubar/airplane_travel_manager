@@ -80,3 +80,6 @@ class Notification(BaseModel):
 class Card(BaseModel):
     card_id = AutoField()
     text = TextField()
+    
+   def show_card(self):
+    print(self.text)
