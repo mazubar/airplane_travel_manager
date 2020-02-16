@@ -1,3 +1,4 @@
+import datetime
 from peewee import *
 db_travel = SqliteDatabase('travel.db')
  
@@ -10,6 +11,7 @@ class Account(BaseModel):
     login = CharField(unique=True)
     name = CharField()
     password = CharField()
+    notifications = BooleanField(default = True)
    
   def add_user(self, login, name, password):
     self.login = login
@@ -21,10 +23,7 @@ class Flight(BaseModel):
     flight_id = AutoField()
     number = CharField()
     departure = DateTimeField()
-  
-  def get_registration_info(self, flight_id) #это по идее должно подгружаться из стороннего источника (скажем, с сайта аэропорта)
-    reg_time = 
-    reg_desks = 
+    state = CharField()
     
   def add_flight(self, number, departure):
     self.number = number
@@ -65,6 +64,12 @@ class Notification(BaseModel):
     text = TextField()
     created = DateTimeField()
     flight = ForeignKeyField(Flight)
+    
+  def get_registration_info(self, flight) 
+    if Flight['flight_id' == flight].state == 'registraion': 
+       self.text = 'Регистрация на рейс ' + Flight.number + ' началась. Стойки регистрации: ' + input('reg_desks')
+       self.created = datetime.datetime.now
+     #это по идее должно подгружаться из стороннего источника (скажем, с сайта аэропорта)
  
 class Card(BaseModel):
     card_id = AutoField()
