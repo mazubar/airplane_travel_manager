@@ -10,12 +10,13 @@ def step_impl(context):
 def step_impl(context):
     pass
 
-@then('Система выдает предупреждение о том, что не все обязательные поля заполнены')
+@then('Система выдает {уведомление о сохранении/предупреждение о том, что не все обязательные поля заполнены}')
 def step_impl(context):
     if flight == NULL or departure == NULL:
         print("Не все необходимые поля заполнены!")
     else:
         Flight.add_flight(flight, departure)
+        print("Сохранено!")
 
 @and ('Незаполненные обязательные поля выделяются красным цветом')
 def step_impl(context):
