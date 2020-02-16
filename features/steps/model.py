@@ -11,7 +11,7 @@ class Account(BaseModel):
     name = CharField()
     password = CharField()
    
-  def add_user(login, name, password):
+  def add_user(self, login, name, password):
     self.login = login
     self.name = name
     self.password = password
@@ -21,8 +21,12 @@ class Flight(BaseModel):
     flight_id = AutoField()
     number = CharField()
     departure = DateTimeField()
+  
+  def get_registration_info(self, flight_id) #это по идее должно подгружаться из стороннего источника (скажем, с сайта аэропорта)
+    reg_time = 
+    reg_desks = 
     
-  def add_flight(number, departure):
+  def add_flight(self, number, departure):
     self.number = number
     self.departure = departure
     self.save()
@@ -33,7 +37,7 @@ class Playlist(BaseModel):
     description = CharField(null=True)
     songs_num = IntegerField()
     
-  def add_song():
+  def add_song(self):
     self.songs_num += self.songs_num
     self.save()
  
@@ -47,7 +51,7 @@ class Audio(BaseModel):
     isLiked = BooleanField(default = False)
     audio_type = CharField()
     
-  def like():
+  def like(self):
     self.isLiked = True
     self.save()
  
