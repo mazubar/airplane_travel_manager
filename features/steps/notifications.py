@@ -10,7 +10,7 @@ Scenario: Уведомление о начале регистрации
 from model import Account, Flight
 from datetime import datetime, timedelta
 
-@given('В систему занесена информация о рейсе и пользователь включил дефолтные уведомления)
+@given('В систему занесена информация о рейсе и пользователь включил дефолтные уведомления')
 def step_impl(context):
     assert Account.notifications = True
 
