@@ -1,8 +1,6 @@
-from peewee import Model
-from playhouse.postgres_ext import PostgresqlExtDatabase
+from peewee import *
 
-db_travel = PostgresqlExtDatabase('di_app', user='app', password='app',
-host='localhost', port=5432)
+db_travel = SqliteDatabase('travel.db')
 
 
 class BaseModel(Model):
