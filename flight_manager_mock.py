@@ -18,24 +18,33 @@ class FlightManagerMock:
 
     def press_save_button(self, flight):
         if flight.number == None:
-            print("Пропущено поле number")
+            self.show_result("Пропущено поле number")
             return None
         elif flight.departure == None:
-            print("Пропущено поле departure")
+            self.show_result("Пропущено поле departure")
             return None
         elif flight.state == None:
-            print("Пропущено поле state")
+            self.show_result("Пропущено поле state")
         else:
             flight.save()
-            print("Ваш полет сохранен")
-            result = input("Хотите настроить уведомления? [y/n] ")
-            NotificationManagerMock(flight, result)
+            self.show_result("Ваш полет сохранен")
+            self.offer_setup_notifications(flight)
+
+    def show_result(self, result):
+        print(result)
+
+    def offer_setup_notifications(self, flight):
+        result = input("Хотите настроить уведомления? [y/n] ")
+        if result == 'y':
+            self.load_notifications(flight)
+
+    def load_notifications(self, flight):
+        NotificationManagerMock(flight)
 
 
 class NotificationManagerMock:
 
-    def __init__(self, flight, result):
-        if result == 'y':
+    def __init__(self, flight):
             self.flight = flight
             self.create_notifications()
 
