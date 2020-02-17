@@ -1,5 +1,6 @@
 from database.base import *
 from peewee import *
+from datetime import datetime
 
 
 class Account(BaseModel):
@@ -34,7 +35,6 @@ class Playlist(BaseModel):
     description = CharField(null=True)
     songs_num = IntegerField()
 
-
     def add_song(self):
         self.songs_num += self.songs_num
         self.save()
@@ -49,7 +49,6 @@ class Audio(BaseModel):
     playlist = ForeignKeyField(Playlist)
     isLiked = BooleanField(default=False)
     audio_type = CharField()
-
 
     def like(self):
         self.isLiked = True
@@ -68,7 +67,6 @@ class Notification(BaseModel):
     created = DateTimeField()
     flight = ForeignKeyField(Flight)
 
-
     def get_registration_info(self, flight):
         if Flight['flight_id' == flight].state == 'registraion':
             self.text = 'Регистрация на рейс ' + Flight.number + ' началась. Стойки регистрации: ' + input(
@@ -80,6 +78,6 @@ class Notification(BaseModel):
 class Card(BaseModel):
     card_id = AutoField()
     text = TextField()
-    
-   def show_card(self):
-    print(self.text)
+
+    def show_card(self):
+       print(self.text)

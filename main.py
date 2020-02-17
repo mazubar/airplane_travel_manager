@@ -16,7 +16,7 @@ flight_manager.press_save_button(first_flight)
 # -> Проущено поле departure
 
 # Если все поля зполнены, то сохраняем рейс и предлагаем настроить уведосления о рейсе
-second_flight = flight_manager.create_flight(number=1021, departure='202002170021', state='SP')
+second_flight = flight_manager.create_flight(number=1021, departure='202002172350', state='SP')
 flight_manager.press_save_button(second_flight)
 # -> Ваш полет сохранен
 # -> Хотите настроить уведомления? [y/n]
